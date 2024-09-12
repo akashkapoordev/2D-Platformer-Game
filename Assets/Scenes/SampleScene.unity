@@ -222,6 +222,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474599911422379851, guid: b65732d4b66ec924b8017ff3efb5443c,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120397607975338472, guid: b65732d4b66ec924b8017ff3efb5443c,
+        type: 3}
+      propertyPath: rb2D
+      value: 
+      objectReference: {fileID: 1734782523}
+    - target: {fileID: 7120397607975338472, guid: b65732d4b66ec924b8017ff3efb5443c,
+        type: 3}
+      propertyPath: player_speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120397607975338472, guid: b65732d4b66ec924b8017ff3efb5443c,
+        type: 3}
+      propertyPath: player_jump_force
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8086551287162516494, guid: b65732d4b66ec924b8017ff3efb5443c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,6 +432,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1734782523 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 474599911422379851, guid: b65732d4b66ec924b8017ff3efb5443c,
+    type: 3}
+  m_PrefabInstance: {fileID: 296220274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

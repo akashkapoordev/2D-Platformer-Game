@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
-    float speed;
-    public float jump;
+    [SerializeField]private Animator animator;
+    [SerializeField] private float player_speed,player_jump_force;
+    [SerializeField] private Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +16,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement();
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Jump");
+        PlayerMovement(horizontal, vertical);
+        PlayerAnimation(horizontal,vertical);
     }
 
-    void playerMovement()
+    //Player Movement
+    void PlayerMovement(float horizontal,float vertical)
     {
-        speed = Input.GetAxisRaw("Horizontal");
-        jump = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("speed",Mathf.Abs(speed));
+        //Horizontal Movement
+        Vector2 player_position = transform.position;
+        player_position.x = player_position.x + horizontal * player_speed * Time.deltaTime;
+        transform.position = player_position;
+
+    }
+
+    //Player Animation
+    void PlayerAnimation(float horizontal,float vertical)
+    {
+
+        animator.SetFloat("speed",Mathf.Abs(horizontal));
 
         Vector2 scale = transform.localScale;
-        if (speed < 0f)
+        if (horizontal < 0f)
         {
             scale.x = -1f * Mathf.Abs(scale.x);
         }
-        else if (speed > 0)
+        else if (horizontal > 0)
         {
             scale.x = Mathf.Abs(scale.x);
         }
@@ -44,11 +57,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("crouch", false);
         }
 
-        if(jump>0)
+        if(vertical>0)
         {
             animator.SetBool("jump", true);
         }
-        else if(jump<=0)
+        else 
         {
             animator.SetBool("jump", false);
 
