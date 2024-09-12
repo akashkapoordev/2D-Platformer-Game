@@ -222,26 +222,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3995501271787243938, guid: b65732d4b66ec924b8017ff3efb5443c,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.1430929
-      objectReference: {fileID: 0}
-    - target: {fileID: 3995501271787243938, guid: b65732d4b66ec924b8017ff3efb5443c,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.01673609
-      objectReference: {fileID: 0}
-    - target: {fileID: 3995501271787243938, guid: b65732d4b66ec924b8017ff3efb5443c,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.9908081
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120397607975338472, guid: b65732d4b66ec924b8017ff3efb5443c,
-        type: 3}
-      propertyPath: player_collider
-      value: 
-      objectReference: {fileID: 1734782522}
     - target: {fileID: 8086551287162516494, guid: b65732d4b66ec924b8017ff3efb5443c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -432,12 +412,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1734782522 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3995501271787243938, guid: b65732d4b66ec924b8017ff3efb5443c,
-    type: 3}
-  m_PrefabInstance: {fileID: 296220274}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
