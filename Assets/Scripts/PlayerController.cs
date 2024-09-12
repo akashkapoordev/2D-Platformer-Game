@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     float speed;
+    public float jump;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,12 @@ public class PlayerController : MonoBehaviour
 
     void playerMovement()
     {
-        Vector3 scale = transform.localScale;
         speed = Input.GetAxisRaw("Horizontal");
+        jump = Input.GetAxisRaw("Vertical");
         animator.SetFloat("speed",Mathf.Abs(speed));
 
-        if(speed < 0f)
+        Vector2 scale = transform.localScale;
+        if (speed < 0f)
         {
             scale.x = -1f * Mathf.Abs(scale.x);
         }
@@ -32,6 +34,26 @@ public class PlayerController : MonoBehaviour
         {
             scale.x = Mathf.Abs(scale.x);
         }
+
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            animator.SetBool("crouch", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            animator.SetBool("crouch", false);
+        }
+
+        if(jump>0)
+        {
+            animator.SetBool("jump", true);
+        }
+        else if(jump<=0)
+        {
+            animator.SetBool("jump", false);
+
+        }
+
 
         transform.localScale = scale;
     }
