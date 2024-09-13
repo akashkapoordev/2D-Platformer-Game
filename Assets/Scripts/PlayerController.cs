@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Animator animator;
     [SerializeField] private float player_speed,player_jump_force;
     [SerializeField] private Rigidbody2D rb2D;
+    bool is_player_grounded = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Jump");
+
         PlayerMovement(horizontal, vertical);
         PlayerAnimation(horizontal,vertical);
     }
@@ -29,7 +31,32 @@ public class PlayerController : MonoBehaviour
         Vector2 player_position = transform.position;
         player_position.x = player_position.x + horizontal * player_speed * Time.deltaTime;
         transform.position = player_position;
+       // Debug.Log(is_player_grounded);
+        //Vertical Movement
+        if (vertical>0 && is_player_grounded)
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, player_jump_force);
+            is_player_grounded= false;
+        }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Platform"))
+        {
+            Debug.Log(collision.gameObject.name);
+            is_player_grounded=true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Platform"))
+        {
+            Debug.Log(collision.gameObject.name);
+            is_player_grounded=false;
+        }
     }
 
     //Player Animation
@@ -70,4 +97,5 @@ public class PlayerController : MonoBehaviour
 
         transform.localScale = scale;
     }
+
 }

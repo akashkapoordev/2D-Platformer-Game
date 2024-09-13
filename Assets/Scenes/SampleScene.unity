@@ -227,6 +227,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 474599911422379851, guid: b65732d4b66ec924b8017ff3efb5443c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 474599911422379851, guid: b65732d4b66ec924b8017ff3efb5443c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995501271787243938, guid: b65732d4b66ec924b8017ff3efb5443c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7120397607975338472, guid: b65732d4b66ec924b8017ff3efb5443c,
         type: 3}
       propertyPath: rb2D
@@ -240,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 7120397607975338472, guid: b65732d4b66ec924b8017ff3efb5443c,
         type: 3}
       propertyPath: player_jump_force
-      value: 100
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8086551287162516494, guid: b65732d4b66ec924b8017ff3efb5443c,
         type: 3}
@@ -315,7 +330,7 @@ GameObject:
   - component: {fileID: 1484659921}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
