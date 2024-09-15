@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Animator animator;
     [SerializeField] private float player_speed,player_jump_force;
     [SerializeField] private Rigidbody2D rb2D;
-    bool is_player_grounded = true;
+    bool is_player_grounded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         //Vertical Movement
         if (vertical>0 && is_player_grounded)
         {
+            animator.SetTrigger("jump_trigger");
             rb2D.velocity = new Vector2(rb2D.velocity.x, player_jump_force);
             is_player_grounded= false;
         }
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Platform"))
         {
-            Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.gameObject.name);
             is_player_grounded=true;
         }
     }
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Platform"))
         {
-            Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.gameObject.name);
             is_player_grounded=false;
         }
     }
