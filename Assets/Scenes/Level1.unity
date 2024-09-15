@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 1296655441}
   - component: {fileID: 1296655440}
   - component: {fileID: 1296655439}
+  - component: {fileID: 1296655442}
   m_Layer: 0
   m_Name: Platform_tilemap
   m_TagString: Platform
@@ -1058,6 +1059,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1296655442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296655437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046af4f7ad8e8cf45b719c74e586fcf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1484659920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1320,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4076611902991074573, guid: 0aaaef9538f56de48aece833d1104b2b,
+        type: 3}
+      propertyPath: levelController
+      value: 
+      objectReference: {fileID: 670599181}
     - target: {fileID: 5058104650452957445, guid: 0aaaef9538f56de48aece833d1104b2b,
         type: 3}
       propertyPath: m_Name

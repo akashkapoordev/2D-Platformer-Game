@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Animator animator;
     [SerializeField] private float player_speed,player_jump_force;
     [SerializeField] private Rigidbody2D rb2D;
+    [SerializeField] private LevelController levelController;
     bool is_player_grounded = false;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
         PlayerMovement(horizontal, vertical);
         PlayerAnimation(horizontal,vertical);
+        OutOfBounds();
     }
 
     //Player Movement
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    //On Collision Enter
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Platform"))
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //On Collision Exit
     private void OnCollisionExit2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Platform"))
@@ -98,5 +103,16 @@ public class PlayerController : MonoBehaviour
 
         transform.localScale = scale;
     }
+
+
+    void OutOfBounds()
+    {
+        Vector2 y_lower_position = new Vector2(0, -11);
+        if(transform.position.y < y_lower_position.y)
+        {
+            levelController.LevelReload();
+        }
+    }
+    
 
 }

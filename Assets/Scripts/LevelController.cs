@@ -19,4 +19,9 @@ public class LevelController : MonoBehaviour
     {
         SceneManager.LoadScene("Level2");
     }
+
+    public void LevelReload()
+    {
+        SceneManager.LoadScene("Level1");
+    }
 }
