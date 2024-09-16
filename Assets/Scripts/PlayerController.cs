@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float player_speed,player_jump_force;
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private LevelController levelController;
+    [SerializeField] private ScoreController scoreController;
     bool is_player_grounded = false;
     // Start is called before the first frame update
     void Start()
@@ -113,6 +115,10 @@ public class PlayerController : MonoBehaviour
             levelController.LevelReload();
         }
     }
-    
 
+   public  void PickupKey()
+    {
+        Debug.Log("Key is picked");
+        scoreController.IncreaseScore(10);
+    }
 }
