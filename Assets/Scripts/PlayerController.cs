@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LevelController levelController;
     [SerializeField] private ScoreController scoreController;
     bool is_player_grounded = false;
+    public float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -120,5 +121,9 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Key is picked");
         scoreController.IncreaseScore(10);
+        timer = Time.time;
+        Debug.Log(timer);
+        //key_animator.SetBool("Key_Fade_Out", false);
+
     }
 }

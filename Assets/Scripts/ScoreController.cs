@@ -6,7 +6,7 @@ using System;
 
 public class ScoreController : MonoBehaviour
 {
-     private TextMeshProUGUI scoreUI;
+    private TextMeshProUGUI scoreUI;
     private int score = 0;
     
     private void Awake()
