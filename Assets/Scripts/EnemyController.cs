@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject point_A;
     [SerializeField] private GameObject point_B;
-    [SerializeField] private float speed = 1.0f;
+    [SerializeField] private float speed;
     private Rigidbody2D rb;
 
     private void Awake()
