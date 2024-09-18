@@ -10,17 +10,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private LevelController levelController;
     [SerializeField] private ScoreController scoreController;
+    [SerializeField] private GameOverController gameOverController;
     [SerializeField] private List<GameObject> health_sprites;
-    private int player_health = 3;
+    private BoxCollider2D boxCollider;
+    public int player_health = 3;
     bool is_player_grounded = false;
+    bool player_dead = false;
     public float timer = 0;
-    private float death_animation_timer = 0.04f;
-    // Start is called before the first frame update
-    void Start()
+    private float death_animation_timer = 0.03f;
+
+    private void Awake()
     {
-        
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    private void Start()
+    {
+        player_dead = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -124,9 +131,6 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Key is picked");
         scoreController.IncreaseScore(10);
-        //timer = Time.time;
-        //Debug.Log(timer);
-        //key_animator.SetBool("Key_Fade_Out", false);
 
     }
 
@@ -137,17 +141,15 @@ public class PlayerController : MonoBehaviour
         DecreaseHealth();
 
         }
-        if (player_health<=0)
+        if (player_health<=0 && !player_dead)
         {
             timer += Time.deltaTime;
-            //Debug.Log(timer);
             animator.SetTrigger("death");
-            if(timer>death_animation_timer)
-            {
-                levelController.LevelReload();
-                Debug.Log("Player Died");
+            gameOverController.gameover_screen.SetActive(true);
+            player_dead = true;
+            this.enabled = false;
 
-            }
+            
         }
     }
 
