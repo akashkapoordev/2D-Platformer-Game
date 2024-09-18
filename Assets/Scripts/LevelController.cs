@@ -25,4 +25,9 @@ public class LevelController : MonoBehaviour
         int current_scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(current_scene);
     }
+
+    public void LevelLoader()
+    {
+
+    }
 }

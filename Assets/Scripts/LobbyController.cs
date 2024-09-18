@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class LobbyController : MonoBehaviour
 {
-
-    public void LoadPlayScene()
+    [SerializeField] GameObject mainmenu_screen;
+    [SerializeField] GameObject lobby_screen;
+    public void LoadLobbyPanel()
     {
-        SceneManager.LoadScene(1);
+        mainmenu_screen.SetActive(false);
+        lobby_screen.SetActive(true);
     }
 
     public void QuitGame()
