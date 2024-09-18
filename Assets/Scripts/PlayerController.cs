@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private LevelController levelController;
     [SerializeField] private ScoreController scoreController;
+    [SerializeField] private List<GameObject> health_sprites;
+    private int player_health = 3;
     bool is_player_grounded = false;
     public float timer = 0;
     // Start is called before the first frame update
@@ -125,5 +127,29 @@ public class PlayerController : MonoBehaviour
         Debug.Log(timer);
         //key_animator.SetBool("Key_Fade_Out", false);
 
+    }
+
+    public void PlayerKilled()
+    {
+        if(player_health>=0)
+        {
+        DecreaseHealth();
+
+        }
+        if (player_health<=0)
+        {
+            levelController.LevelReload();
+            Debug.Log("Player Died");
+        }
+    }
+
+    void DecreaseHealth()
+    {
+        if(player_health>=0)
+        {
+            Destroy(health_sprites[player_health - 1]);
+            player_health--;
+        }
+     
     }
 }

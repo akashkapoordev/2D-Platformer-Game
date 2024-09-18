@@ -21,17 +21,28 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "PointB")
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "PointB")
         {
             speed = -1f;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        if(collision.gameObject.name == "PointA")
+        if (collision.gameObject.name == "PointA")
         {
             speed = 1f;
             transform.rotation = Quaternion.Euler(0, 0, 0);
 
+        }
+
+        if (collision.gameObject.GetComponent<PlayerController>() != null)
+        {
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            playerController.PlayerKilled();
         }
     }
 }
