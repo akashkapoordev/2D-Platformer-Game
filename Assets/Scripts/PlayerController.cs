@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private int player_health = 3;
     bool is_player_grounded = false;
     public float timer = 0;
+    private float death_animation_timer = 0.04f;
     // Start is called before the first frame update
     void Start()
     {
@@ -123,8 +124,8 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Key is picked");
         scoreController.IncreaseScore(10);
-        timer = Time.time;
-        Debug.Log(timer);
+        //timer = Time.time;
+        //Debug.Log(timer);
         //key_animator.SetBool("Key_Fade_Out", false);
 
     }
@@ -138,14 +139,21 @@ public class PlayerController : MonoBehaviour
         }
         if (player_health<=0)
         {
-            levelController.LevelReload();
-            Debug.Log("Player Died");
+            timer += Time.deltaTime;
+            //Debug.Log(timer);
+            animator.SetTrigger("death");
+            if(timer>death_animation_timer)
+            {
+                levelController.LevelReload();
+                Debug.Log("Player Died");
+
+            }
         }
     }
 
     void DecreaseHealth()
     {
-        if(player_health>=0)
+        if(player_health>0)
         {
             Destroy(health_sprites[player_health - 1]);
             player_health--;
