@@ -16,12 +16,6 @@ public class LevelController : MonoBehaviour
         }
     }
 
-
-    void NextLevel()
-    {
-        SceneManager.LoadScene("Level2");
-    }
-
     public void LevelReload()
     {
         int current_scene = SceneManager.GetActiveScene().buildIndex;

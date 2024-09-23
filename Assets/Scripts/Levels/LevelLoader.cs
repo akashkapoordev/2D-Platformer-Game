@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 [RequireComponent(typeof(Button))]
 public class LevelLoader : MonoBehaviour
 {
     private Button button;
     [SerializeField] string level_name;
+
+
 
     private void Awake()
     {
@@ -35,4 +38,6 @@ public class LevelLoader : MonoBehaviour
 
         
     }
+
+ 
 }

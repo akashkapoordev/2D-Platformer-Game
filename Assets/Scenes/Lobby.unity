@@ -1183,6 +1183,7 @@ MonoBehaviour:
   - Level4
   LevelSelectionScreen: {fileID: 8553079642790995334, guid: a05764d97d647d443a0710b70728789a,
     type: 3}
+  textMeshProUGUI: {fileID: 0}
 --- !u!4 &1801376900
 Transform:
   m_ObjectHideFlags: 0

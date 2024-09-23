@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private string[] Levels;
     [SerializeField] public GameObject LevelSelectionScreen;
+    [SerializeField] TextMeshProUGUI textMeshProUGUI;
 
     private void Awake()
     {
@@ -24,14 +26,18 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        textMeshProUGUI = LevelSelectionScreen.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Start()
     {
+
         if (GetLevelStatus(Levels[0]) == LevelStatus.Locked)
         {
             SetLevelStatus(Levels[0], LevelStatus.Unlocked);
         }
+        textMeshProUGUI.text = "Lobby";
     }
 
     public LevelStatus GetLevelStatus(string level)
@@ -49,6 +55,7 @@ public class LevelManager : MonoBehaviour
     public void MarkCompleted()
     {
         Scene currentScene = SceneManager.GetActiveScene();
+        textMeshProUGUI.text = currentScene.name + " Completed \r\nSelect Next  Level";
 
         SetLevelStatus(currentScene.name, LevelStatus.Completed);
 
