@@ -14,9 +14,4 @@ public class LobbyController : MonoBehaviour
         mainmenu_screen.SetActive(false);
         lobby_screen.SetActive(true);
     }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }
