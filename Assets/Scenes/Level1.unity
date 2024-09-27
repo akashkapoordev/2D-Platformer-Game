@@ -1669,12 +1669,12 @@ PrefabInstance:
     - target: {fileID: 1828949482816598523, guid: 0aaaef9538f56de48aece833d1104b2b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1828949482816598523, guid: 0aaaef9538f56de48aece833d1104b2b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1828949482816598523, guid: 0aaaef9538f56de48aece833d1104b2b,
         type: 3}
@@ -1716,6 +1716,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4076611902991074573, guid: 0aaaef9538f56de48aece833d1104b2b,
+        type: 3}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 5903896083569252999, guid: e7daaff719cfb214082946f16f231b9b,
+        type: 3}
     - target: {fileID: 4076611902991074573, guid: 0aaaef9538f56de48aece833d1104b2b,
         type: 3}
       propertyPath: levelController

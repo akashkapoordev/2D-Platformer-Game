@@ -10,6 +10,7 @@ public class LevelController : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<PlayerController>() != null)
         {
+            SoundManager.Instance.PlayerSound(Sounds.CompleteLevel);
             LevelManager.Instance.MarkCompleted();
             GameObject prefab =  Instantiate(LevelManager.Instance.LevelSelectionScreen);
             prefab.transform.SetParent(levelSelectionParerent,false);
@@ -18,6 +19,7 @@ public class LevelController : MonoBehaviour
 
     public void LevelReload()
     {
+        SoundManager.Instance.PlayerSound(Sounds.StartingLevel);
         int current_scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(current_scene);
 

@@ -7,10 +7,14 @@ using UnityEngine.Audio;
 public enum Sounds
 {
     PlayerMovement,
+    PlayerFailing,
+    StartingLevel,
+    CompleteLevel,
     PlayerDie,
     EnmeyMovement,
     BackgroundMusic,
-    SoundEffect
+    SoundEffect,
+    GameOver
 
 }
 public class SoundManager : MonoBehaviour

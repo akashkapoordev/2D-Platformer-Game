@@ -173,12 +173,22 @@ MonoBehaviour:
   backgroundMusic: {fileID: 1966100929}
   playerSound: {fileID: 1869294908}
   SoundArray:
-  - type: 3
+  - type: 6
     AudioClip: {fileID: 8300000, guid: 0651b56880a11ef45909b779443691aa, type: 3}
-  - type: 4
+  - type: 7
     AudioClip: {fileID: 8300000, guid: df6d1af64fdebb04d80a54b27b720509, type: 3}
   - type: 0
     AudioClip: {fileID: 8300000, guid: 234b586e812e70b419affbe33e30dcfe, type: 3}
+  - type: 1
+    AudioClip: {fileID: 8300000, guid: d431fa148030167429bac715838b7ad9, type: 3}
+  - type: 2
+    AudioClip: {fileID: 8300000, guid: e5e3d939966ebe04bad8ed5f9a6cae59, type: 3}
+  - type: 3
+    AudioClip: {fileID: 8300000, guid: b7f76dbb9b24d7f4587a8fce7bb53a50, type: 3}
+  - type: 1
+    AudioClip: {fileID: 8300000, guid: d431fa148030167429bac715838b7ad9, type: 3}
+  - type: 8
+    AudioClip: {fileID: 8300000, guid: 9339d25c518b5d34b841343c163520d0, type: 3}
 --- !u!1 &124787978
 GameObject:
   m_ObjectHideFlags: 0

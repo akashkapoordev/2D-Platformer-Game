@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ScoreController scoreController;
     [SerializeField] private GameOverController gameOverController;
     [SerializeField] private List<GameObject> health_sprites;
+    [SerializeField] private ParticleSystem bloodPrefab;
     private BoxCollider2D boxCollider;
     public int player_health = 3;
     bool is_player_grounded = false;
@@ -123,7 +124,9 @@ public class PlayerController : MonoBehaviour
         Vector2 y_lower_position = new Vector2(0, -11);
         if(transform.position.y < y_lower_position.y)
         {
-            levelController.LevelReload();
+            PlayerKilled();
+            transform.position = new Vector3(0, 0, 0);
+            transform.rotation = Quaternion.identity;
         }
     }
 
@@ -143,7 +146,10 @@ public class PlayerController : MonoBehaviour
         }
         if (player_health<=0 && !player_dead)
         {
+           ParticleSystem blood =  Instantiate(bloodPrefab, transform.position, Quaternion.identity, transform);
+            blood.Play();
             timer += Time.deltaTime;
+            SoundManager.Instance.PlayerSound(Sounds.GameOver);
             animator.SetTrigger("death");
             gameOverController.gameover_screen.SetActive(true);
             player_dead = true;
