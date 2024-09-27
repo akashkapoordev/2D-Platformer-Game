@@ -28,9 +28,11 @@ public class LevelLoader : MonoBehaviour
                 Debug.Log("Cannot play this level");
                 break;
             case LevelStatus.Unlocked:
+                SoundManager.Instance.ButtonSound(Sounds.SoundEffect);
                 SceneManager.LoadScene(level_name);
                 break;
             case LevelStatus.Completed:
+                SoundManager.Instance.ButtonSound(Sounds.SoundEffect);
                 SceneManager.LoadScene(level_name);
                 break;
 

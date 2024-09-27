@@ -11,6 +11,7 @@ public class LobbyController : MonoBehaviour
     [SerializeField] GameObject lobby_screen;
     public void LoadLobbyPanel()
     {
+        SoundManager.Instance.ButtonSound(Sounds.SoundEffect);
         mainmenu_screen.SetActive(false);
         lobby_screen.SetActive(true);
     }
